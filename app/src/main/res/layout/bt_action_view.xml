@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="110dp"
+    android:layout_height="110dp"
+    android:background="@android:color/transparent">
+    <ImageView
+        android:id="@+id/option_big_icon"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/add_icon"
+        android:layout_centerInParent="true"/>
+    <ImageView
+        android:id="@+id/option_small_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/headset_icon"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

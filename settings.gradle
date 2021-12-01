@@ -1,0 +1,6 @@
+include ':spotify-auth-release'
+include ':spotify-app-remote'
+include ':app-remote-lib'
+include ':auth-lib'
+include ':app'
+rootProject.name = "CarController"

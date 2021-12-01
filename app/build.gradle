@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        debug {
+            keyAlias 'newAl'
+            keyPassword '123456'
+            storeFile file('/Users/michaelarens/Desktop/33333/CarController/app/keystore/key.keystore')
+            storePassword '123456'
+        }
+        release {
+            keyAlias 'newAl'
+            keyPassword '123456'
+            storePassword '123456'
+            storeFile file('/Users/michaelarens/Desktop/33333/CarController/app/keystore/key.keystore')
+        }
+    }
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.carcontroller"
+        minSdkVersion 28
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*'
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //noinspection GradleCompatible
+    implementation "com.android.support:support-compat:28.0.0"
+
+    implementation "io.ktor:ktor:1.2.5"
+    implementation "io.ktor:ktor-server-netty:1.2.5"
+    implementation "io.ktor:ktor-gson:1.2.5"
+
+    implementation project(':spotify-app-remote')
+    implementation project(':spotify-auth-release')
+    implementation "com.google.code.gson:gson:2.8.5"
+
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+
+    implementation 'com.airbnb.android:lottie:3.6.0'
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.carcontroller">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
+
+    <uses-feature android:required="true" android:name="android.hardware.bluetooth_le"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/otto_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/otto_icon"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+
+        <receiver
+            android:name=".services.Restarter"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="restartservice" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".services.BluetoothBroadcastReciver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="bluetoothReciver" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".services.BluetoothHandlerService"
+            android:foregroundServiceType="location"
+            android:enabled="true" >
+        </service>
+
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
